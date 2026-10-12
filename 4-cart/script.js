@@ -72,16 +72,34 @@ function removeItem(id) {
   renderCart();
 }
 
-function applyPromo() {
-  if (( cart.length > 0)) {
-    promoInput.value = 'SALE10'
-    discount = 0.1;
+function applyPromo() { 
+
+  if (discount > 0) {
+    discount = 0;
+    promoInput.value = '';   
+    promoBtn.classList.remove('is-success');
+    promoBtn.textContent = 'Применить';
+    renderCart();
+    return; 
+  }
+
+  if (( cart.length > 0 && promoInput.value === 'SALE10')) {    
+    discount = 0.1;    
+    promoBtn.classList.add('is-success');
+    promoBtn.textContent = 'Отменить';    
+  } else {
+    discount = 0;
+    promoBtn.classList.remove('is-success');
+    promoBtn.textContent = 'Применить';
+    
   }
   renderCart();
 }
 
 function clearCart() {
   cart = [];
+  promoInput.value = '';
+  applyPromo();
   renderCart();
 }
 
