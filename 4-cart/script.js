@@ -137,6 +137,8 @@ function renderCart() {
   totalEl.textContent = total;
   if (cart.length === 0) {
     emptyMsg.hidden = false;
+  } else {
+    emptyMsg.hidden = true;
   }
 }
 
