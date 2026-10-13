@@ -85,8 +85,8 @@ body {
 
 .features li {
   padding: 0;
-  margin-bottom: 8px;
-  padding-block: 6px;
+  margin-block: 6px;
+  
 }
 
 .features li::before {
